@@ -1,0 +1,19 @@
+
+/* fira-mono-regular - latin */
+@font-face {
+  font-display: swap; 
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('@/assets/fonts/fira-mono-v16-latin-regular.woff2') format('woff2');
+}
+
+html,
+.v-snackbar__content,
+[class*='text-'] {
+	font-family: 'Fira Mono', sans-serif !important;
+}
+
+.cl{
+	cursor: pointer;
+}

@@ -1,0 +1,84 @@
+<template>
+  <v-snackbar id="snackbar" v-model="visible" color="purple-lighten-3" timeout="-1">
+    <v-row align="center" class="ma-0 pa-0" justify="center" no-gutters>
+      <v-col v-if="icon && !loading" class="text-black" cols="auto">
+        <v-icon color="black" :icon size="large" />
+      </v-col>
+      <v-col v-if="loading" class="" cols="auto">
+        <v-progress-circular
+          color="black"
+          indeterminate
+          :size="18"
+          :width="3"
+        />
+      </v-col>
+      <v-col class="mx-3 ma-0 pa-0 text-black" cols="auto">
+        {{ message }}
+      </v-col>
+    </v-row>
+  </v-snackbar>
+</template>
+
+<script setup lang="ts">
+  const snackStore = snackbarModule()
+  const loading = computed({
+    get (): boolean {
+      return snackStore.loading
+    },
+    set (b: boolean) {
+      snackStore.set_loading(b)
+    },
+  })
+
+  const message = computed({
+    get (): string {
+      return snackStore.message
+    },
+    set (b: string) {
+      snackStore.set_message(b)
+    },
+  })
+
+  const snackTimeout = computed({
+    get (): number {
+      return snackStore.timeout
+    },
+    set (n: number) {
+      snackStore.set_timeout(n)
+    },
+  })
+
+  const visible = computed({
+    get (): boolean {
+      return snackStore.visible
+    },
+    set (b: boolean) {
+      snackStore.set_visible(b)
+    },
+  })
+
+  const timeout = ref(0)
+
+  const icon = computed(() => snackStore.icon)
+
+  function closeSnackbar (): void {
+    visible.value = false
+    snackStore.$reset()
+    clearTimeout(timeout.value)
+    timeout.value = 0
+  }
+
+  watch(visible, i => {
+    if (i && snackTimeout) {
+      timeout.value = window.setTimeout(() => {
+        closeSnackbar()
+      }, snackTimeout.value)
+    }
+  })
+</script>
+
+<style>
+#snackbar {
+    padding-bottom: 1.5rem;
+}
+</style>
