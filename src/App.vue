@@ -25,6 +25,9 @@
   const service_interval = ref(0)
 
   onMounted(() => {
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault()
+    })
     check_service()
     service_interval.value = setInterval(check_service, 1000 * 60 * 60)
   })
