@@ -43,7 +43,7 @@ const online_time = computed({
 const rows = computed(() => [
 	{ key: 'api_version', value: [api_version.value] },
 	{ key: 'online for', value: [online_time.value] },
-	{ key: 'requests recieved', value: [onlineStore.stats?.response.total.aggregate.toLocaleString() ?? '0'] },
+	{ key: 'requests received', value: [onlineStore.stats?.response.total.aggregate.toLocaleString() ?? '0'] },
 ])
 
 onMounted(async () => {
