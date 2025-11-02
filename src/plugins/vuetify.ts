@@ -5,14 +5,14 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import 'vuetify/styles'
 
 export default createVuetify({
-  theme: {
-    defaultTheme: 'dark',
-  },
-  icons: {
-    defaultSet: 'mdi',
-    aliases,
-    sets: {
-      mdi,
-    },
-  },
+	theme: {
+		defaultTheme: 'dark',
+	},
+	icons: {
+		defaultSet: 'mdi',
+		aliases,
+		sets: {
+			mdi,
+		},
+	},
 })
