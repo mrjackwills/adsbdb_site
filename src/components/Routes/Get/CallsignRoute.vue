@@ -57,30 +57,17 @@
 
 <script setup lang="ts">
 
-import type { ApiResponse, CallsignResponse } from '@/types'
-import { apiRequests } from '@/services/axios'
 import { ID_TABLES } from '@/types'
 
-const random_callsign = computed({
-	get (): undefined | ApiResponse<CallsignResponse> {
-		return randomModule().callsign
-	},
-	set (b: ApiResponse<CallsignResponse>): void {
-		randomModule().set_callsign(b)
-	},
-})
-
-const url = ref('')
+const randomStore = randomModule()
+const random_callsign = computed(() => randomStore.callsign)
+const url = computed(() => `${route}/${random_callsign.value?.response.flightroute.callsign}`)
 const route = 'callsign'
 
 const description = 'Query for a flightroute by either an IATA or IACO callsign. Random callsign endpoint also available.'
-onMounted(async () => {
-	await get_random_callsign()
-})
 
 async function get_random_callsign (): Promise<void> {
-	random_callsign.value = await apiRequests.callsign_random_get()
-	url.value = `${route}/${random_callsign.value?.response.flightroute.callsign}`
+	await randomStore.get_new_callsign()
 }
 
 const flightroute_value = [

@@ -23,7 +23,6 @@
 </template>
 
 <script setup lang="ts">
-import { apiRequests } from '@/services/axios'
 import { env } from '@/services/env'
 import { secondsToText } from '@/services/text'
 
@@ -31,28 +30,12 @@ const href = `${env.github_homepage}/adsbdb/issues`
 
 const onlineStore = onlineModule()
 const api_version = computed((): string => onlineStore.api_version)
-const online_time = computed({
-	get (): string {
-		return secondsToText(onlineStore.online_time)
-	},
-	set (b: number): void {
-		onlineStore.set_online_time(b)
-	},
-})
+const online_time = computed(() => secondsToText(onlineStore.online_time))
 
 const rows = computed(() => [
 	{ key: 'api_version', value: [api_version.value] },
 	{ key: 'online for', value: [online_time.value] },
 	{ key: 'requests received', value: [onlineStore.stats?.response.total.aggregate.toLocaleString() ?? '0'] },
 ])
-
-onMounted(async () => {
-	const { api_version, uptime } = await (await apiRequests.online_get()).response
-	online_time.value = uptime
-	onlineStore.set_api_version(api_version)
-	setInterval(() => {
-		onlineStore.increase_online_time()
-	}, 1000)
-})
 
 </script>

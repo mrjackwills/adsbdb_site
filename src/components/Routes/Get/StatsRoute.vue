@@ -37,8 +37,6 @@
 						</template>
 					</GenericTable>
 
-					<!-- MAYBE add button to refresh now -->
-
 					<GenericTable :id='ID_TABLES.Stats.Count' :rows='entry_values' title='Count' />
 				</template>
 				<template #response>
@@ -53,8 +51,6 @@
 </template>
 
 <script setup lang="ts">
-import type { ApiResponse, StatsResponse } from '@/types'
-import { apiRequests } from '@/services/axios'
 import { goto } from '@/services/goto'
 import { ID_TABLES } from '@/types'
 const route = 'stats'
@@ -62,32 +58,9 @@ const description = `Get statistics for the top 10 most requested urls at each e
 
 const onlineStore = onlineModule()
 
-const stats = computed({
-	get (): ApiResponse<StatsResponse> | undefined {
-		return onlineStore.stats
-	},
-	set (b: ApiResponse<StatsResponse>): void {
-		onlineStore.set_stats(b)
-	},
-})
-
-async function get_stats (): Promise<void> {
-	onlineStore.set_stats(await apiRequests.stats_get())
-}
+const stats = computed(() => onlineStore.stats)
 
 const keys = ['aircraft', 'airline', 'callsign', 'mode_s', 'n_number', 'online', 'stats']
-
-onMounted(async () => {
-	await get_stats()
-})
-
-const uptime = computed(() => onlineModule().online_time)
-
-watch (uptime, async i => {
-	if (i % 60 === 0) {
-		await get_stats()
-	}
-})
 
 const request_value = [{ key: 'aggregate', value: ['number'] }]
 const entry_values = [{ key: 'url', value: ['string'] }, { key: 'count', value: ['number'] }]

@@ -24,29 +24,16 @@
 </template>
 
 <script setup lang="ts">
-import type { AircraftResponse, ApiResponse } from '@/types'
-import { apiRequests } from '@/services/axios'
-const random_aircraft = computed({
-	get (): undefined | ApiResponse<AircraftResponse> {
-		return randomModule().aircraft
-	},
-	set (b: ApiResponse<AircraftResponse>): void {
-		randomModule().set_aircraft(b)
-	},
-})
+const randomStore = randomModule()
+const random_aircraft = computed(() => randomStore.aircraft)
 
-const url = ref('')
+const url = computed(() => `${route}/${random_aircraft.value?.response.aircraft.mode_s}`)
 const route = 'aircraft'
 
 const description = 'Query for an aircraft by its Mode S transponder code or registration number. Random aircraft endpoint also available.'
 
 async function get_random_aircraft (): Promise<void> {
-	random_aircraft.value = await apiRequests.aircraft_random_get()
-	url.value = `${route}/${random_aircraft.value.response.aircraft.mode_s}`
+	await randomStore.get_new_aircraft()
 }
-
-onMounted(async () => {
-	await get_random_aircraft()
-})
 
 </script>

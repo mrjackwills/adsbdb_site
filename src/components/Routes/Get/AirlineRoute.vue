@@ -31,30 +31,16 @@
 
 <script setup lang="ts">
 
-import type { AirlineResponse, ApiResponse } from '@/types'
-import { apiRequests } from '@/services/axios'
-
 const route = 'airline'
 
 const description = 'Query for an Airline based on an Airlines ICAO or IATA short code, if found, this will return an array of one or more Airlines. Random airline endpoint also available, but will always return an array containing only one airline.'
-
-const random_airline = computed({
-	get (): undefined | ApiResponse<Array<AirlineResponse>> {
-		return randomModule().airline
-	},
-	set (b: ApiResponse<Array<AirlineResponse>>): void {
-		randomModule().set_airline(b)
-	},
-})
+const randomStore = randomModule()
+const random_airline = computed(() => randomStore.airline)
 
 const url = computed(() => `${route}/${random_airline?.value?.response[0]?.icao}`)
 
-onMounted(async () => {
-	await get_random_airline()
-})
-
 async function get_random_airline (): Promise<void> {
-	random_airline.value = await apiRequests.airline_random_get()
+	await randomStore.get_new_aircraft()
 }
 
 </script>
