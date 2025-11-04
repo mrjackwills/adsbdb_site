@@ -6,12 +6,11 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "vite build",
     "check": "vue-tsc --noEmit",
     "preview": "vite preview",
-    "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
-  	"lint": "eslint ./src"
+    "lint": "eslint ./src"
   },
   "dependencies": {
     "@vueuse/core": "^14.0.0",
@@ -32,7 +31,6 @@
     "@vue/tsconfig": "^0.8.1",
     "eslint": "^9.39.1",
     "eslint-config-vuetify": "^4.2.0",
-    "npm-run-all2": "^8.0.4",
     "sass-embedded": "^1.93.3",
     "typescript": "~5.9.3",
     "unplugin-auto-import": "^20.2.0",
@@ -40,7 +38,7 @@
     "unplugin-vue-components": "^30.0.0",
     "unplugin-vue-router": "^0.16.1",
     "vite": "^7.1.12",
-    "vite-plugin-compression2": "^2.3.1",
+    "vite-plugin-compression": "^0.5.1",
     "vite-plugin-pwa": "^1.1.0",
     "vite-plugin-vue-layouts-next": "^1.2.0",
     "vite-plugin-vuetify": "^2.1.2",

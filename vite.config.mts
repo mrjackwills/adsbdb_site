@@ -9,7 +9,8 @@ import VueRouter from 'unplugin-vue-router/vite'
 // Utilities
 import { defineConfig } from 'vite'
 
-import { compression, defineAlgorithm } from 'vite-plugin-compression2'
+import viteCompression from 'vite-plugin-compression'
+
 import { VitePWA } from 'vite-plugin-pwa'
 
 import Layouts from 'vite-plugin-vue-layouts-next'
@@ -95,13 +96,8 @@ export default defineConfig({
 				configFile: 'src/styles/settings.scss',
 			},
 		}),
-		compression({
-			algorithms: [
-				'gzip',
-				'brotliCompress',
-				defineAlgorithm('deflate', { level: 9 }),
-			],
-		}),
+		viteCompression({ algorithm: 'brotliCompress', filter: /\.(js|mjs|json|css)$/i }),
+		viteCompression({ algorithm: 'gzip', filter: /\.(js|mjs|json|css)$/i }),
 	],
 	optimizeDeps: {
 		exclude: [
