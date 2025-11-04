@@ -26,20 +26,23 @@ const service_interval = ref(0)
 
 const randomStore = randomModule()
 const onlineStore = onlineModule()
-onMounted(async () => {
-	window.addEventListener('beforeinstallprompt', e => {
-		e.preventDefault()
-	})
-	check_service()
-	service_interval.value = setInterval(check_service, 1000 * 60 * 60)
 
-	await Promise.all([
+onBeforeMount(async () => {
+	Promise.all([
 		onlineStore.get_stats(),
 		onlineStore.get_time_version(),
 		randomStore.get_new_aircraft(),
 		randomStore.get_new_airline(),
 		randomStore.get_new_callsign(),
 	])
+})
+
+onMounted(async () => {
+	window.addEventListener('beforeinstallprompt', e => {
+		e.preventDefault()
+	})
+	check_service()
+	service_interval.value = setInterval(check_service, 1000 * 60 * 60)
 })
 
 useHead({
