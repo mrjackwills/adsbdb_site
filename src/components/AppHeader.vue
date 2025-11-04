@@ -3,7 +3,7 @@
 	<v-row align='center' justify='center'>
 		<v-col class='text-center ma-0 pa-0' cols='auto'>
 			<v-img
-				class=''
+				alt='adsbdb logo'
 				:eager='true'
 				:max-height='logo_size'
 				src='@/assets/logo.svg'
