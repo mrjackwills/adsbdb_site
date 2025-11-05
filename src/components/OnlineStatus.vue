@@ -35,7 +35,8 @@ const online_time = computed(() => secondsToText(onlineStore.online_time))
 const rows = computed(() => [
 	{ key: 'api_version', value: [api_version.value] },
 	{ key: 'online for', value: [online_time.value] },
-	{ key: 'requests received', value: [onlineStore.stats?.response.total.aggregate.toLocaleString() ?? '0'] },
+	{ key: 'daily requests received', value: [onlineStore.stats?.response.daily.aggregate.toLocaleString() ?? '0'] },
+	{ key: 'total requests received', value: [onlineStore.stats?.response.total.aggregate.toLocaleString() ?? '0'] },
 ])
 
 </script>
