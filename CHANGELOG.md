@@ -5,7 +5,7 @@
 + use vite-plugin-compression instead of vite-plugin-compression2, [dd9e03eaea9f58b308d46af490f6983df84678ca]
 
 ### Features
-+ add request recevied in online status card, [84b2430a5ac55437d1c1ba4d450c9632a85fa8b1]
++ add request received in online status card, [84b2430a5ac55437d1c1ba4d450c9632a85fa8b1]
 + add daily request count to online status box, [17c1bfd71a53def0dfb2cd8b963691a3dbb1aa57]
 + add structured data to index.html, [c6afb0d59bee20a9326b09b013978e4c47c8326a]
 + prevent pwa popup, [f6866a6d764dfd3daa91bad98a1cb9fce110982e]
