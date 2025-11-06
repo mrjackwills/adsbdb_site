@@ -10,9 +10,9 @@ const head = createHead()
 const pinia = createPinia()
 
 export function registerPlugins (app: App) {
-  app
-    .use(head)
-    .use(vuetify)
-    .use(router)
-    .use(pinia)
+	app
+		.use(head)
+		.use(vuetify)
+		.use(router)
+		.use(pinia)
 }

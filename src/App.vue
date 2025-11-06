@@ -1,57 +1,73 @@
 <template>
-  <v-app>
-    <router-view />
-  </v-app>
+	<v-app>
+		<router-view />
+	</v-app>
 </template>
 
 <script lang="ts" setup>
-  import { useHead } from '@vueuse/head'
-  import { registerSW } from 'virtual:pwa-register'
-  import { useRegisterSW } from 'virtual:pwa-register/vue'
-  import { snackSuccess } from '@/services/snack'
+import { useHead } from '@vueuse/head'
+import { registerSW } from 'virtual:pwa-register'
+import { useRegisterSW } from 'virtual:pwa-register/vue'
+import { snackSuccess } from '@/services/snack'
 
-  const { updateServiceWorker } = useRegisterSW()
+const { updateServiceWorker } = useRegisterSW()
 
-  function check_service () {
-    if ('serviceWorker' in navigator) {
-      registerSW({
-        onNeedRefresh () {
-          appUpdate()
-        },
-      })
-    }
-  }
+function check_service () {
+	if ('serviceWorker' in navigator) {
+		registerSW({
+			onNeedRefresh () {
+				appUpdate()
+			},
+		})
+	}
+}
 
-  const service_interval = ref(0)
+const service_interval = ref(0)
 
-  onMounted(() => {
-    check_service()
-    service_interval.value = setInterval(check_service, 1000 * 60 * 60)
-  })
+const randomStore = randomModule()
+const onlineStore = onlineModule()
 
-  useHead({
-    title: () => 'adsbdb.com',
+onBeforeMount(async () => {
+	Promise.all([
+		onlineStore.get_stats(),
+		onlineStore.get_time_version(),
+		randomStore.get_new_aircraft(),
+		randomStore.get_new_airline(),
+		randomStore.get_new_callsign(),
+	])
+})
 
-    meta: [
-      {
-        name: `description`,
-        content: `adsbdb.com - Public api for aircraft, airlines, & flightroutes`,
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: `https://www.adsbdb.com`,
-      },
-    ],
-  })
+onMounted(async () => {
+	window.addEventListener('beforeinstallprompt', e => {
+		e.preventDefault()
+	})
+	check_service()
+	service_interval.value = setInterval(check_service, 1000 * 60 * 60)
+})
 
-  function appUpdate (): void {
-    snackSuccess({
-      message: 'Downloading Updates',
-      loading: true,
-      timeout: 4500,
-    })
-    window.setTimeout(() => updateServiceWorker(), 5000)
-  }
+useHead({
+	title: () => 'adsbdb.com',
+
+	meta: [
+		{
+			name: `description`,
+			content: `adsbdb.com - Public api for aircraft, airlines, & flightroutes`,
+		},
+	],
+	link: [
+		{
+			rel: 'canonical',
+			href: `https://www.adsbdb.com`,
+		},
+	],
+})
+
+function appUpdate (): void {
+	snackSuccess({
+		message: 'Downloading Updates',
+		loading: true,
+		timeout: 4500,
+	})
+	window.setTimeout(() => updateServiceWorker(), 5000)
+}
 </script>

@@ -1,104 +1,91 @@
 <template>
 
-  <AppCard>
-    <template #body>
+	<AppCard>
+		<template #body>
 
-      <RouteDescription
-        :description
-        random
-        :route
-        :title="route"
-        variable="CALLSIGN_ICAO || CALLSIGN_ICAO"
-        @click="get_random_callsign"
-      />
+			<RouteDescription
+				:description
+				random
+				:route
+				:title='route'
+				variable='CALLSIGN_ICAO || CALLSIGN_ICAO'
+				@click='get_random_callsign'
+			/>
 
-      <TableResponse>
+			<TableResponse>
 
-        <template #table>
-          <GenericTable :rows="flightroute_value">
-            <template #tr_end>
-              <tr>
-                <td class="font-weight-bold">airline</td>
-                <GotoTD :id="ID_TABLES.Callsign.Airline" text="Airline" />
-              </tr>
-              <tr>
-                <td class="font-weight-bold">origin</td>
-                <GotoTD :id="ID_TABLES.Callsign.Airport" text="Airport" />
-              </tr>
-              <tr>
-                <td class="font-weight-bold">midpoint?</td>
-                <GotoTD :id="ID_TABLES.Callsign.Airport" text="Airport*" />
-              </tr>
-              <tr>
-                <td class="font-weight-bold">destination</td>
-                <GotoTD :id="ID_TABLES.Callsign.Airport" text="Airport" />
-              </tr>
+				<template #table>
+					<GenericTable :rows='flightroute_value'>
+						<template #tr_end>
+							<tr>
+								<td class='font-weight-bold'>airline</td>
+								<GotoTD :id='ID_TABLES.Callsign.Airline' text='Airline' />
+							</tr>
+							<tr>
+								<td class='font-weight-bold'>origin</td>
+								<GotoTD :id='ID_TABLES.Callsign.Airport' text='Airport' />
+							</tr>
+							<tr>
+								<td class='font-weight-bold'>midpoint?</td>
+								<GotoTD :id='ID_TABLES.Callsign.Airport' text='Airport*' />
+							</tr>
+							<tr>
+								<td class='font-weight-bold'>destination</td>
+								<GotoTD :id='ID_TABLES.Callsign.Airport' text='Airport' />
+							</tr>
 
-            </template>
-          </GenericTable>
+						</template>
+					</GenericTable>
 
-          <MidPoint />
+					<MidPoint />
 
-          <AirlineTable :id="ID_TABLES.Callsign.Airline" />
+					<AirlineTable :id='ID_TABLES.Callsign.Airline' />
 
-          <GenericTable :id="ID_TABLES.Callsign.Airport" :rows="airport_value" title="Airport" />
-        </template>
+					<GenericTable :id='ID_TABLES.Callsign.Airport' :rows='airport_value' title='Airport' />
+				</template>
 
-        <template #response>
-          <CodeBlock v-if="random_callsign" :code="random_callsign" :url />
-          <v-skeleton-loader v-else type="paragraph, paragraph, paragraph, paragraph, paragraph, paragraph" />
-        </template>
+				<template #response>
+					<CodeBlock v-if='random_callsign' :code='random_callsign' :url />
+					<v-skeleton-loader v-else type='paragraph, paragraph, paragraph, paragraph, paragraph, paragraph' />
+				</template>
 
-      </TableResponse>
+			</TableResponse>
 
-    </template>
-  </AppCard>
+		</template>
+	</AppCard>
 </template>
 
 <script setup lang="ts">
 
-  import type { ApiResponse, CallsignResponse } from '@/types'
-  import { apiRequests } from '@/services/axios'
-  import { ID_TABLES } from '@/types'
+import { ID_TABLES } from '@/types'
 
-  const random_callsign = computed({
-    get (): undefined | ApiResponse<CallsignResponse> {
-      return randomModule().callsign
-    },
-    set (b: ApiResponse<CallsignResponse>): void {
-      randomModule().set_callsign(b)
-    },
-  })
+const randomStore = randomModule()
+const random_callsign = computed(() => randomStore.callsign)
+const url = computed(() => `${route}/${random_callsign.value?.response.flightroute.callsign}`)
+const route = 'callsign'
 
-  const url = ref('')
-  const route = 'callsign'
+const description = 'Query for a flightroute by either an IATA or IACO callsign. Random callsign endpoint also available.'
 
-  const description = 'Query for a flightroute by either an IATA or IACO callsign. Random callsign endpoint also available.'
-  onMounted(async () => {
-    await get_random_callsign()
-  })
+async function get_random_callsign (): Promise<void> {
+	await randomStore.get_new_callsign()
+}
 
-  async function get_random_callsign (): Promise<void> {
-    random_callsign.value = await apiRequests.callsign_random_get()
-    url.value = `${route}/${random_callsign.value?.response.flightroute.callsign}`
-  }
+const flightroute_value = [
+	{ key: 'callsign', value: ['string'] },
+	{ key: 'callsign_icao', value: ['string', 'null'] },
+	{ key: 'callsign_iata', value: ['string', 'null'] },
+]
 
-  const flightroute_value = [
-    { key: 'callsign', value: ['string'] },
-    { key: 'callsign_icao', value: ['string', 'null'] },
-    { key: 'callsign_iata', value: ['string', 'null'] },
-  ]
-
-  const airport_value = [
-    { key: 'country_iso_name', value: ['string'] },
-    { key: 'country_name', value: ['string'] },
-    { key: 'elevation', value: ['number'] },
-    { key: 'iata_code', value: ['string'] },
-    { key: 'icao_code', value: ['string'] },
-    { key: 'latitude', value: ['number'] },
-    { key: 'longitude', value: ['number'] },
-    { key: 'municipality', value: ['string'] },
-    { key: 'name', value: ['string'] },
-  ]
+const airport_value = [
+	{ key: 'country_iso_name', value: ['string'] },
+	{ key: 'country_name', value: ['string'] },
+	{ key: 'elevation', value: ['number'] },
+	{ key: 'iata_code', value: ['string'] },
+	{ key: 'icao_code', value: ['string'] },
+	{ key: 'latitude', value: ['number'] },
+	{ key: 'longitude', value: ['number'] },
+	{ key: 'municipality', value: ['string'] },
+	{ key: 'name', value: ['string'] },
+]
 
 </script>

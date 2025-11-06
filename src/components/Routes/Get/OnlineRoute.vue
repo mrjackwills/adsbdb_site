@@ -1,44 +1,44 @@
 <template>
 
-  <AppCard>
-    <template #body>
+	<AppCard>
+		<template #body>
 
-      <RouteDescription :description :random="false" :route :title="route" />
+			<RouteDescription :description :random='false' :route :title='route' />
 
-      <TableResponse>
+			<TableResponse>
 
-        <template #table>
-          <GenericTable :rows />
-        </template>
+				<template #table>
+					<GenericTable :rows />
+				</template>
 
-        <template #response>
-          <CodeBlock v-if="onlineStore.online_time > 0" :code="status" />
-          <v-skeleton-loader v-else type="sentences" />
-        </template>
+				<template #response>
+					<CodeBlock v-if='onlineStore.online_time > 0' :code='status' />
+					<v-skeleton-loader v-else type='sentences' />
+				</template>
 
-      </TableResponse>
+			</TableResponse>
 
-    </template>
-  </AppCard>
+		</template>
+	</AppCard>
 </template>
 
 <script setup lang="ts">
-  import type { ApiResponse, OnlineResponse } from '@/types'
-  const route = 'online'
+import type { ApiResponse, OnlineResponse } from '@/types'
+const route = 'online'
 
-  const onlineStore = onlineModule()
+const onlineStore = onlineModule()
 
-  const description = 'Check basic adsbdb API status, uptime is measured in seconds.'
+const description = 'Check basic adsbdb API status, uptime is measured in seconds.'
 
-  const rows = [{ key: 'api_version', value: ['string'] }, { key: 'uptime', value: ['number'] }]
+const rows = [{ key: 'api_version', value: ['string'] }, { key: 'uptime', value: ['number'] }]
 
-  const status = computed((): ApiResponse<OnlineResponse> => {
-    return {
-      response: {
-        api_version: onlineStore.api_version,
-        uptime: onlineStore.online_time,
-      },
-    }
-  })
+const status = computed((): ApiResponse<OnlineResponse> => {
+	return {
+		response: {
+			api_version: onlineStore.api_version,
+			uptime: onlineStore.online_time,
+		},
+	}
+})
 
 </script>

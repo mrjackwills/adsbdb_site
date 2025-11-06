@@ -1,19 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name='robots' content='index, follow'>
 	<link rel='apple-touch-icon' sizes='180x180' href='/img/apple-touch-icon.png'>
 	<link rel='icon' type='image/png' sizes='32x32' href='/img/favicon-32x32.png'>
 	<link rel='icon' type='image/png' sizes='16x16' href='/img/favicon-16x16.png'>
+	<link rel='stylesheet' type='text/css' href='/index.css'>
 	<link rel='mask-icon' href='/img/safari-pinned-tab.svg' color='#5bbad5'>
 	<meta name="theme-color" content="#7488e5">
-    <title>adsbdb</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+	<title>adsbdb</title>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Dataset",
+		"name": "adsbdb.com",
+		"description": " Public api for aircraft, airlines, & flightroutes.",
+		"url": "https://www.adsbdb.com",
+		"sameAs": "https://twitter.com/adsbdb",
+		"isAccessibleForFree": true,
+		"distribution": {
+			"@type": "DataDownload",
+			"encodingFormat": "application/json",
+			"contentUrl": "https://api.adsbdb.com"
+		},
+		"creator": {
+			"@type": "Person",
+			"name": "Jack Wills",
+			"url": "https://www.mrjackwills.com",
+			"sameAs": [
+				"https://twitter.com/mrjackwills",
+				"https://github.com/mrjackwills",
+				"https://bsky.app/profile/mrjackwills.com"
+			]
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "adsbdb",
+			"logo": "https://www.adsbdb.com/img/android-chrome-512x512.png"
+		}
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="app"></div>
+	<script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>

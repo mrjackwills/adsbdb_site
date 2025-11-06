@@ -1,10 +1,10 @@
 <template>
-  <v-main>
-    <router-view />
-    <SnackBar />
-    <UpArrow />
-    <AppFooter />
-  </v-main>
+	<v-main>
+		<router-view />
+		<SnackBar />
+		<UpArrow />
+		<AppFooter />
+	</v-main>
 
 </template>
 
