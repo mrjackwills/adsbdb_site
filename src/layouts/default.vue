@@ -13,5 +13,6 @@
 <script lang="ts" setup>
 
 const route = useRoute()
-const show = computed(() => route.path === '/')
+
+const show = computed(() => route.name === '/')
 </script>
