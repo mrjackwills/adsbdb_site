@@ -12,12 +12,12 @@
 					class='font-weight-bold'
 				>Data</span> tag.
 			</section>
-			<v-row v-if='api_version' class='ma-0 pa-0' justify='center'>
+			<v-row v-if='show_table' class='ma-0 pa-0' justify='center'>
 				<v-col class='ma-0 pa-0 my-3' cols='12'>
 					<GenericTable no-headers :rows />
 				</v-col>
 			</v-row>
-			<v-skeleton-loader v-else type='table-row-divider, table-row' />
+			<v-skeleton-loader v-else type='table-row, table-row, table-row' />
 		</template>
 	</AppCard>
 </template>
@@ -29,14 +29,19 @@ import { secondsToText } from '@/services/text'
 const href = `${env.github_homepage}/adsbdb/issues`
 
 const onlineStore = onlineModule()
-const api_version = computed((): string => onlineStore.api_version)
+const api_version = computed(() => onlineStore.api_version)
 const online_time = computed(() => secondsToText(onlineStore.online_time))
+
+const daily_requests = computed(() => onlineStore.stats?.response.daily.aggregate)
+const total_requests = computed(() => onlineStore.stats?.response.total.aggregate)
+
+const show_table = computed(() => api_version.value && total_requests.value)
 
 const rows = computed(() => [
 	{ key: 'api_version', value: [api_version.value] },
 	{ key: 'online for', value: [online_time.value] },
-	{ key: 'daily requests received', value: [onlineStore.stats?.response.daily.aggregate.toLocaleString() ?? '0'] },
-	{ key: 'total requests received', value: [onlineStore.stats?.response.total.aggregate.toLocaleString() ?? '0'] },
+	{ key: 'daily requests received', value: [daily_requests.value?.toLocaleString() ?? '0'] },
+	{ key: 'total requests received', value: [total_requests.value?.toLocaleString() ?? '0'] },
 ])
 
 </script>
