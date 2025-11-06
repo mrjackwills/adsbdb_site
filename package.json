@@ -16,11 +16,11 @@
     "@vueuse/core": "^14.0.0",
     "@vueuse/head": "^2.0.0",
     "axios": "^1.13.2",
-    "pinia": "^3.0.3",
+    "pinia": "^3.0.4",
     "prismjs": "^1.30.0",
-    "vue": "^3.5.22",
+    "vue": "^3.5.23",
     "vue-router": "^4.6.3",
-    "vuetify": "^3.10.8"
+    "vuetify": "^3.10.9"
   },
   "devDependencies": {
     "@mdi/js": "^7.4.47",
@@ -37,7 +37,7 @@
     "unplugin-fonts": "^1.4.0",
     "unplugin-vue-components": "^30.0.0",
     "unplugin-vue-router": "^0.16.1",
-    "vite": "^7.1.12",
+    "vite": "^7.2.1",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-pwa": "^1.1.0",
     "vite-plugin-vue-layouts-next": "^1.2.0",
