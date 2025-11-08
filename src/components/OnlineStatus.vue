@@ -38,7 +38,7 @@ const total_requests = computed(() => onlineStore.stats?.response.total.aggregat
 const show_table = computed(() => api_version.value && total_requests.value)
 
 const rows = computed(() => [
-	{ key: 'api_version', value: [api_version.value] },
+	{ key: 'api version', value: [api_version.value] },
 	{ key: 'online for', value: [online_time.value] },
 	{ key: 'daily requests received', value: [daily_requests.value?.toLocaleString() ?? '0'] },
 	{ key: 'total requests received', value: [total_requests.value?.toLocaleString() ?? '0'] },
