@@ -72,7 +72,7 @@ export default defineConfig({
 				families: [
 					{
 						name: 'Fira Mono',
-						local: 'Fira  Mono',
+						local: 'Fira Mono',
 						src: './src/assets/fonts/*.woff2',
 					},
 				],
