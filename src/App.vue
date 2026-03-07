@@ -64,7 +64,7 @@ useHead({
 
 function appUpdate (): void {
 	snackSuccess({
-		message: 'Downloading Updates',
+		message: 'updating website',
 		loading: true,
 		timeout: 4500,
 	})

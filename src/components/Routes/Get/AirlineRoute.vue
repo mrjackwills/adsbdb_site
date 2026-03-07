@@ -40,7 +40,7 @@ const random_airline = computed(() => randomStore.airline)
 const url = computed(() => `${route}/${random_airline?.value?.response[0]?.icao}`)
 
 async function get_random_airline (): Promise<void> {
-	await randomStore.get_new_aircraft()
+	await randomStore.get_new_airline()
 }
 
 </script>

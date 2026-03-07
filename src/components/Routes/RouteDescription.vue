@@ -1,26 +1,26 @@
 <template>
 
-	<v-row align='center' justify='space-between'>
+	<v-row class='align-start justify-space-between'>
 		<v-col class='' cols='12' md='auto'>
-			<span class='text-capitalize text-h5'>{{ prefix }}: {{ title }}</span>
+			<span class='text-capitalize text-headline-medium'>{{ prefix }}: {{ title }}</span>
 		</v-col>
 
-		<v-col cols='12' md='auto'>
-			<v-row align='center' class='mt-1' justify='end'>
+		<v-col class='align-end' cols='12' md='7'>
+			<v-row class='mt-1 align-center justify-end' density='compact'>
 				<v-col class='ma-0 pa-0' cols='12'>
 					<UrlBox bg :link='show_link' rounded :url />
 				</v-col>
 			</v-row>
-			<v-row v-if='random' align='center' class=''>
-				<v-col class='ma-0 pa-0 mt-1' cols='12'>
+			<v-row v-if='random' class='align-center' density='compact'>
+				<v-col class='ma-0 pa-0' cols='12'>
 					<UrlBox bg link rounded :url='random_url' />
 				</v-col>
 			</v-row>
 		</v-col>
 	</v-row>
 
-	<v-row align='center' justify='space-between'>
-		<v-col class='' cols='12' :md='random?"8":"12"'>
+	<v-row class='align-center justify-space-between mt-1'>
+		<v-col class='' cols='12' :md='random?"9":"12"'>
 			{{ description }}
 		</v-col>
 		<v-col
@@ -28,7 +28,7 @@
 			class=''
 			:class='button_alignment'
 			cols='12'
-			md='4'
+			md='3'
 		>
 			<v-btn
 				color='yellow'

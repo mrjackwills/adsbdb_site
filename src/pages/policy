@@ -1,11 +1,11 @@
 <template>
   <v-container class="" fluid>
-    <v-row class="mt-4" cols="12" justify="center">
+    <v-row cols="12" class='mt-4 justify-center'>
 
       <v-col cols="12" md="10">
         <AppHeader />
 
-        <v-row justify="center">
+        <v-row class='justify-center'>
           <v-col cols="12">
             <AppCard>
               <template #body>

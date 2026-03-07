@@ -1,18 +1,18 @@
 <template>
 	<v-container class='' fluid>
-		<v-row class='mt-4' cols='12' justify='center'>
+		<v-row class='mt-4 justify-center' cols='12' density='compact'>
 
 			<v-col cols='12' md='10'>
 
 				<AppHeader />
 
-				<v-row justify='center'>
+				<v-row class='justify-center'>
 					<v-col cols='12'>
 						<AppThanks />
 					</v-col>
 				</v-row>
 
-				<v-row justify='center'>
+				<v-row class='justify-center'>
 					<v-col cols='12' md='6'>
 						<OnlineStatus />
 					</v-col>
@@ -22,7 +22,7 @@
 
 				</v-row>
 
-				<v-row justify='center'>
+				<v-row class='justify-center'>
 
 					<v-col cols='12' md='6'>
 						<GetRoutes />
@@ -34,13 +34,13 @@
 
 				</v-row>
 
-				<v-row v-for='(item, index) in components_get' :id='item.id' :key='index' justify='center'>
+				<v-row v-for='(item, index) in components_get' :id='item.id' :key='index' class='justify-center'>
 					<v-col cols='12'>
 						<component :is='item.component' />
 					</v-col>
 				</v-row>
 
-				<v-row v-for='(item, index) in components_patch' :id='item.id' :key='index' justify='center'>
+				<v-row v-for='(item, index) in components_patch' :id='item.id' :key='index' class='justify-center'>
 					<v-col cols='12'>
 						<component :is='item.component' />
 					</v-col>

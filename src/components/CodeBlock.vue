@@ -1,6 +1,6 @@
 <template>
 	<UrlBox v-if='url' link :url />
-	<pre class='language-js' v-html='highlighted_code' />
+	<pre class='language-js mt-0 ' v-html='highlighted_code' />
 </template>
 
 <script setup lang="ts">

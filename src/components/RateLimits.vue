@@ -1,13 +1,15 @@
 <template>
 	<AppCard>
 		<template #body>
-			<div class='text-h6'>
+			<div class='text-headline-small'>
 				Rate limits
 			</div>
-			Rate limits are calculated over a rolling 60 second time period.
-			<v-row class='ma-0 pa-0' justify='center'>
+			<section class='' :style='{ minHeight }'>
+				Rate limits are calculated over a rolling 60 second time period.
+			</section>
+			<v-row class='ma-0 pa-0 justify-center'>
 				<v-col class='ma-0 pa-0 my-3' cols='12'>
-					<v-table class='mt-3' density='compact' striped='odd'>
+					<v-table class='' density='compact' striped='odd'>
 						<thead>
 							<tr>
 								<th class='text-left'>
@@ -35,3 +37,11 @@
 		</template>
 	</AppCard>
 </template>
+
+<script setup lang="ts">
+import { useDisplay } from 'vuetify'
+const { mdAndUp } = useDisplay()
+
+const minHeight = computed(() => mdAndUp.value ? `${onlineModule().status_height}px` : '')
+
+</script>
