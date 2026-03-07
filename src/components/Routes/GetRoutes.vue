@@ -1,7 +1,7 @@
 <template>
 	<AppCard>
 		<template #body>
-			<div class='text-h6'>
+			<div class='text-headline-small'>
 				GET routes
 			</div>
 			Send a GET request to query the adsbdb database. Each request is returned in the format <code class='bg-black px-3'> { "response": T }</code>

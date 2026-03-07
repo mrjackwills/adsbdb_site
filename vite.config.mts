@@ -5,16 +5,16 @@ import Vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unfonts from 'unplugin-fonts/vite'
 import Components from 'unplugin-vue-components/vite'
-import VueRouter from 'unplugin-vue-router/vite'
 // Utilities
 import { defineConfig } from 'vite'
-
 import viteCompression from 'vite-plugin-compression'
 
 import { VitePWA } from 'vite-plugin-pwa'
 
 import Layouts from 'vite-plugin-vue-layouts-next'
+
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import VueRouter from 'vue-router/vite'
 
 const pwaOptions: Partial<VitePWAOptions> = {
 	base: '/',

@@ -3,10 +3,10 @@
 	<AppCard>
 		<template #body>
 
-			<div class='mb-2'>With thanks to;</div>
+			With thanks to;
 
-			<v-row>
-				<v-col v-for='(item,index) in rows' :key='index' class='my-0 py-2' cols='12'>
+			<v-row density='compact'>
+				<v-col v-for='(item,index) in rows' :key='index' class='ma-0 pa-0' cols='12'>
 					<v-icon
 						:icon='mdiCircleSmall'
 					/>

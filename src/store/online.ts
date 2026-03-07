@@ -6,6 +6,7 @@ export const onlineModule = defineStore(ModuleName.Online, {
 	state: () => ({
 		api_version: '',
 		online_time: 0,
+		status_height: 0,
 		stats: undefined as undefined | ApiResponse<StatsResponse>,
 	}),
 

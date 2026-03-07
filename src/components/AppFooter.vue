@@ -3,7 +3,7 @@
 		class='cl'
 		color='transparent'
 	>
-		<v-row align='center' class='no-gutters ma-0 pa-0' justify='center'>
+		<v-row class='no-gutters ma-0 pa-0 align-center justify-center'>
 
 			<v-col class='no-gutters unselectable ma-0 pa-0' cols='auto'>
 
@@ -21,7 +21,7 @@
 					</section>
 
 					<section v-else>
-						<a class='text-caption' :href rel='noopener noreferrer' target='_blank'>
+						<a class='text-body-small' :href rel='noopener noreferrer' target='_blank'>
 							<v-icon class='mr-2' color='black' :icon='mdiGithub' size='large' />
 						</a>
 						<span class='' @click='buildInfo'>
@@ -63,10 +63,6 @@ function buildInfo (): void {
 </script>
 
 <style scoped>
-.lowercase-button {
-    text-transform: lowercase;
-}
-
 a {
     color: #000000 !important;
     text-decoration: none;

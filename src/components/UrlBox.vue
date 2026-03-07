@@ -1,6 +1,6 @@
 <template>
 	<v-alert
-		class='text-yellow text-left text-body-2'
+		class='text-yellow text-left text-body-medium'
 		color='black'
 		density='compact'
 		:rounded='rounded?"lg":"0"'

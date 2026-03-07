@@ -1,7 +1,7 @@
 <template>
 	<AppCard>
 		<template #body>
-			<div class='text-h6'>
+			<div class='text-headline-small'>
 				PATCH routes
 			</div>
 
