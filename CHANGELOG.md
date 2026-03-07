@@ -1,5 +1,5 @@
 ### Chores
-+ depedencies updated, [74ff70e260bbaafab8444665e9a708d315b3f46e], [85acebafa0aaf8f63e5b27a0e7f012e85492fbcf], [ee3ba85f7cfa25c90456c3f3cf3d3f22478c49d5]
++ dependencies updated, [74ff70e260bbaafab8444665e9a708d315b3f46e], [85acebafa0aaf8f63e5b27a0e7f012e85492fbcf], [ee3ba85f7cfa25c90456c3f3cf3d3f22478c49d5]
 
 ### Features
 + 404 error handler, [c1556b4ef5999dba7b62ff2dfc2dded3b205f3cf]
