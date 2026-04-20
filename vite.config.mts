@@ -1,5 +1,6 @@
 import type { VitePWAOptions } from 'vite-plugin-pwa'
 import { fileURLToPath, URL } from 'node:url'
+import babel from '@rolldown/plugin-babel'
 import Vue from '@vitejs/plugin-vue'
 // Plugins
 import AutoImport from 'unplugin-auto-import/vite'
@@ -7,12 +8,9 @@ import Unfonts from 'unplugin-fonts/vite'
 import Components from 'unplugin-vue-components/vite'
 // Utilities
 import { defineConfig } from 'vite'
-import viteCompression from 'vite-plugin-compression'
-
+import compression from 'vite-plugin-compression2'
 import { VitePWA } from 'vite-plugin-pwa'
-
 import Layouts from 'vite-plugin-vue-layouts-next'
-
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import VueRouter from 'vue-router/vite'
 
@@ -41,6 +39,20 @@ const pwaOptions: Partial<VitePWAOptions> = {
 			},
 		],
 	},
+}
+
+function decoratorPreset (options: Record<string, unknown>) {
+	return {
+		preset: () => ({
+			plugins: [['@babel/plugin-proposal-decorators', options]],
+		}),
+		rolldown: {
+			// Only run this transform if the file contains a decorator.
+			filter: {
+				code: '@',
+			},
+		},
+	}
 }
 
 // https://vitejs.dev/config/
@@ -96,8 +108,11 @@ export default defineConfig({
 				configFile: 'src/styles/settings.scss',
 			},
 		}),
-		viteCompression({ algorithm: 'brotliCompress', filter: /\.(js|mjs|json|css)$/i }),
-		viteCompression({ algorithm: 'gzip', filter: /\.(js|mjs|json|css)$/i }),
+		babel({ presets: [decoratorPreset({ version: '2023-11' })] }),
+		compression({
+			algorithms: ['brotliCompress', 'gzip'],
+			exclude: [/\.(br)$/, /\.(gz)$/],
+		}),
 	],
 	optimizeDeps: {
 		exclude: [

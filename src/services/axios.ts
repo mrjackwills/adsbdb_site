@@ -1,5 +1,5 @@
-import type { AxiosInstance } from 'axios'
 import type { AircraftResponse, AirlineResponse, ApiResponse, CallsignResponse, OnlineResponse, StatsResponse } from '@/types'
+import type { AxiosInstance } from 'axios'
 import Axios from 'axios'
 import { env } from '@/services/env'
 import { snackError } from '@/services/snack'
