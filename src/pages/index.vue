@@ -59,10 +59,8 @@ import AirlineRoute from '@/components/Routes/Get/AirlineRoute.vue'
 import CallsignRoute from '@/components/Routes/Get/CallsignRoute.vue'
 import ModeSRoute from '@/components/Routes/Get/ModeSRoute.vue'
 import NNumberRoute from '@/components/Routes/Get/NNumberRoute.vue'
-
 import OnlineRoute from '@/components/Routes/Get/OnlineRoute.vue'
 import StatsRoute from '@/components/Routes/Get/StatsRoute.vue'
-
 import AircraftPatch from '@/components/Routes/Patch/AircraftPatch.vue'
 import CallsignPatch from '@/components/Routes/Patch/CallsignPatch.vue'
 import { ID_ROUTES } from '@/types'
