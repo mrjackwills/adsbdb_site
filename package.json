@@ -14,17 +14,16 @@
   "dependencies": {
     "@vueuse/core": "^14.2.1",
     "@vueuse/head": "^2.0.0",
-    "axios": "^1.15.1",
     "pinia": "^3.0.4",
     "prismjs": "^1.30.0",
-    "vue-router": "^5.0.4",
-    "vue": "^3.5.32",
-    "vuetify": "^4.0.5"
+    "vue-router": "^5.0.6",
+    "vue": "^3.5.33",
+    "vuetify": "^4.0.6"
 },
 "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.29.0",
     "@mdi/js": "^7.4.47",
-    "@rolldown/plugin-babel": "^0.2.1",
+    "@rolldown/plugin-babel": "^0.2.3",
     "@tsconfig/node22": "^22.0.5",
     "@types/node": "^25.6.0",
     "@types/prismjs": "^1.26.6",
