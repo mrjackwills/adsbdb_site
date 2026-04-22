@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { apiRequests } from '@/services/axios'
+import { apiRequests } from '@/services/fetch'
 import { type ApiResponse, ModuleName, type StatsResponse } from '@/types'
 
 export const onlineModule = defineStore(ModuleName.Online, {

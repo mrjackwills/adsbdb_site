@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { apiRequests } from '@/services/axios'
+import { apiRequests } from '@/services/fetch'
 import { type AircraftResponse, type AirlineResponse, type ApiResponse, type CallsignResponse, ModuleName } from '@/types'
 
 export const randomModule = defineStore(ModuleName.RandomResponses, {
