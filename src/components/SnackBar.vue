@@ -4,6 +4,7 @@
 			<v-col v-if='icon && !loading' class='text-black' cols='auto'>
 				<v-icon color='black' :icon size='large' />
 			</v-col>
+
 			<v-col v-if='loading' class='' cols='auto'>
 				<v-progress-circular
 					color='black'
@@ -12,6 +13,7 @@
 					:width='3'
 				/>
 			</v-col>
+
 			<v-col class='mx-3 ma-0 pa-0 text-black' cols='auto'>
 				{{ message }}
 			</v-col>

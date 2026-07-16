@@ -10,6 +10,7 @@
 					<v-icon
 						:icon='mdiCircleSmall'
 					/>
+
 					<ExternalLink v-if='item.link' :href='item.link.href' :text='item.link.text' />
 					{{ item.text }}
 				</v-col>

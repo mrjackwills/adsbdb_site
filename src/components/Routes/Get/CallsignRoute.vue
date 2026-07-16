@@ -21,14 +21,17 @@
 								<td class='font-weight-bold'>airline</td>
 								<GotoTD :id='ID_TABLES.Callsign.Airline' text='Airline' />
 							</tr>
+
 							<tr>
 								<td class='font-weight-bold'>origin</td>
 								<GotoTD :id='ID_TABLES.Callsign.Airport' text='Airport' />
 							</tr>
+
 							<tr>
 								<td class='font-weight-bold'>midpoint?</td>
 								<GotoTD :id='ID_TABLES.Callsign.Airport' text='Airport*' />
 							</tr>
+
 							<tr>
 								<td class='font-weight-bold'>destination</td>
 								<GotoTD :id='ID_TABLES.Callsign.Airport' text='Airport' />

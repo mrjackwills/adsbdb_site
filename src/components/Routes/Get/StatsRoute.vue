@@ -39,6 +39,7 @@
 
 					<GenericTable :id='ID_TABLES.Stats.Count' :rows='entry_values' title='Count' />
 				</template>
+
 				<template #response>
 					<CodeBlock v-if='stats' :code='stats' />
 					<v-skeleton-loader v-else type='paragraph,paragraph,paragraph,paragraph,paragraph,' />

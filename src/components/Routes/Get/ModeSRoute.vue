@@ -15,6 +15,7 @@
 				<template #table>
 					<GenericTable :rows />
 				</template>
+
 				<template #response>
 					<CodeBlock :string='response' :url />
 				</template>

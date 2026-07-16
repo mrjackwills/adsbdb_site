@@ -1,6 +1,7 @@
 <template>
 	<v-main>
 		<router-view />
+
 		<section v-if='show'>
 			<SnackBar />
 			<UpArrow />

@@ -14,6 +14,7 @@
 				<template #table>
 					<AircraftTable />
 				</template>
+
 				<template #response>
 					<CodeBlock v-if='random_aircraft' :code='random_aircraft' :url />
 					<v-skeleton-loader v-else type='paragraph, paragraph, paragraph' />

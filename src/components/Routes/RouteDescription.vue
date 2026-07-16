@@ -11,6 +11,7 @@
 					<UrlBox bg :link='show_link' rounded :url />
 				</v-col>
 			</v-row>
+
 			<v-row v-if='random' class='align-center' density='compact'>
 				<v-col class='ma-0 pa-0' cols='12'>
 					<UrlBox bg link rounded :url='random_url' />
@@ -23,6 +24,7 @@
 		<v-col class='' cols='12' :md='random?"9":"12"'>
 			{{ description }}
 		</v-col>
+
 		<v-col
 			v-if='random'
 			class=''
