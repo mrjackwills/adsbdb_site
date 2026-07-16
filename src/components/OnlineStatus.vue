@@ -4,19 +4,24 @@
 			<div class='text-headline-small'>
 				Status
 			</div>
+
 			<section ref='status_section'>
 				See adsbdb <ExternalLink href='https://www.twitter.com/adsbdb' text='twitter page' /> for any status updates.
 				<br>
 				Please report any incorrect data to the
-				<ExternalLink :href text='issues page' /> with the <span
+				<ExternalLink :href text='issues page' />
+
+				with the <span
 					class='font-weight-bold'
 				>Data</span> tag.
 			</section>
+
 			<v-row v-if='show_table' class='ma-0 pa-0 justify-center'>
 				<v-col class='ma-0 pa-0 my-3' cols='12'>
 					<GenericTable no-headers :rows />
 				</v-col>
 			</v-row>
+
 			<v-skeleton-loader v-else type='table-row, table-row, table-row' />
 		</template>
 	</AppCard>

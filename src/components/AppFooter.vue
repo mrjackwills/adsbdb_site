@@ -24,6 +24,7 @@
 						<a class='text-body-small' :href rel='noopener noreferrer' target='_blank'>
 							<v-icon class='mr-2' color='black' :icon='mdiGithub' size='large' />
 						</a>
+
 						<span class='' @click='buildInfo'>
 							mrjackwills 2022 -
 						</span>

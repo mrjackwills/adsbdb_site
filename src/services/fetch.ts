@@ -6,6 +6,7 @@ function wrap (value: any, _context: ClassMethodDecoratorContext) {
 	const original = value
 	async function wrapped (this: any, ...args: any[]) {
 		try {
+			// eslint-disable-next-line unicorn/no-this-outside-of-class
 			return await original.apply(this, args)
 		} catch (error) {
 			snackError({ message: `Unable to access api.adsbdb.com` })
@@ -25,7 +26,7 @@ class ApiRequests {
 			'Content-Type': 'application/json; charset=utf-8',
 			'Cache-control': 'no-cache',
 		}
-		this.#timeout = 10_000
+		this.#timeout = 20_000
 	}
 
 	@wrap
@@ -54,7 +55,7 @@ class ApiRequests {
 	}
 
 	async #get<T>(path: string): Promise<T> {
-		const url = new URL(path, env.domain_api.endsWith('/') ? env.domain_api : `${env.domain_api}/`).href
+		const url = new URL(path.startsWith('/') ? path.slice(1) : path, env.domain_api.endsWith('/') ? env.domain_api : `${env.domain_api}/`).href
 		const controller = new AbortController()
 		const timer = setTimeout(() => controller.abort(), this.#timeout)
 

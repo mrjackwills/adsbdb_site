@@ -14,6 +14,7 @@
 								<td class='font-weight-bold'>aircraft</td>
 								<GotoTD :id='ID_TABLES.AircraftCallsign.Aircraft' text='Aircraft' />
 							</tr>
+
 							<tr>
 								<td class='font-weight-bold'>flightroute</td>
 								<GotoTD :id='ID_TABLES.AircraftCallsign.Flightroute' text='Flightroute' />
@@ -23,16 +24,19 @@
 								<td class='font-weight-bold'>origin</td>
 								<GotoTD :id='ID_TABLES.AircraftCallsign.Airport' text='Airport' />
 							</tr>
+
 							<tr>
 								<td class='font-weight-bold'>midpoint?</td>
 								<GotoTD :id='ID_TABLES.AircraftCallsign.Airport' text='Airport *' />
 							</tr>
+
 							<tr>
 								<td class='font-weight-bold'>destination</td>
 								<GotoTD :id='ID_TABLES.AircraftCallsign.Airport' text='Airport' />
 							</tr>
 						</template>
 					</GenericTable>
+
 					<MidPoint />
 
 					<AircraftTable :id='ID_TABLES.AircraftCallsign.Aircraft' title='Aircraft' />

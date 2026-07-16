@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-this-outside-of-class */
 import { defineStore } from 'pinia'
 import { apiRequests } from '@/services/fetch'
 import { type AircraftResponse, type AirlineResponse, type ApiResponse, type CallsignResponse, ModuleName } from '@/types'

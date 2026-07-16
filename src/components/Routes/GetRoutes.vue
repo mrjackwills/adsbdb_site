@@ -4,7 +4,9 @@
 			<div class='text-headline-small'>
 				GET routes
 			</div>
+
 			Send a GET request to query the adsbdb database. Each request is returned in the format <code class='bg-black px-3'> { "response": T }</code>
+
 			<v-table class='mt-3' density='compact' striped='even'>
 				<tbody>
 					<tr v-for='(i, dx) in links' :key='dx'>

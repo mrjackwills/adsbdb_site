@@ -10,9 +10,11 @@
 				:width='logo_size'
 			/>
 		</v-col>
+
 		<v-col class='text-center' cols='auto'>
 			<span class='font-weight-bold' :class='font_size'>adsbdb.com</span>
 		</v-col>
+
 		<v-col class='text-center' cols='12' sm='auto'>
 
 			<v-btn
@@ -27,6 +29,7 @@
 				<v-icon :icon='mdiOpenInNew' />
 			</v-btn>
 		</v-col>
+
 		<v-col class=' text-center' cols='12'>
 			<span :class='desc_size'> Public api for aircraft, airlines, & flightroutes</span>
 		</v-col>

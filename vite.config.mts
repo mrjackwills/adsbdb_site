@@ -41,20 +41,6 @@ const pwaOptions: Partial<VitePWAOptions> = {
 	},
 }
 
-function decoratorPreset (options: Record<string, unknown>) {
-	return {
-		preset: () => ({
-			plugins: [['@babel/plugin-proposal-decorators', options]],
-		}),
-		rolldown: {
-			// Only run this transform if the file contains a decorator.
-			filter: {
-				code: '@',
-			},
-		},
-	}
-}
-
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
@@ -108,7 +94,12 @@ export default defineConfig({
 				configFile: 'src/styles/settings.scss',
 			},
 		}),
-		babel({ presets: [decoratorPreset({ version: '2023-11' })] }),
+		babel({
+			presets: [{
+				preset: () => ({ plugins: [['@babel/plugin-proposal-decorators', { version: '2023-11' }]] }),
+				rolldown: { filter: { code: '@' } },
+			}],
+		}),
 		compression({
 			algorithms: ['brotliCompress', 'gzip'],
 			exclude: [/\.(br)$/, /\.(gz)$/],

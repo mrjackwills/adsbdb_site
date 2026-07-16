@@ -16,6 +16,7 @@
 					<v-col cols='12' md='6'>
 						<OnlineStatus />
 					</v-col>
+
 					<v-col cols='12' md='6'>
 						<RateLimits />
 					</v-col>
