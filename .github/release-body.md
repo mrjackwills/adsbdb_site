@@ -1,14 +1,14 @@
-### 2026-04-22
+### 2026-07-16
 
 ### Chores
-+ linting, [d70d8468157aefbe48497ecd3dc1eddeeffad2d5]
-+ GitHub workflow updated, [2520cafa08d61adc66e5903745afe4ee1aae0083]
-+ dependencies updated, [10efbe1687c86ce430125ea961aa4c8af01f29a1], [87f5dec0d7c676487aacc81da19950d5cfb90e43]
-
-### Features
-+ switch from axios to native fetch, [c1c81fdd41555f247dbe7ce651f6d9d6dd843a2d]
++ linting, [57d118853bc18f969f1f1af54bfb109fb87f1079]
++ .devcontainer updated, [62e81abe9a9d437feae9892dc294cfea5d73e7dc]
++ dependencies updated, [3a80a659e7bd656b34bc7409add87bd4f49ca1ed]
 
 ### Fixes
-+ vite decorator fix, [255029879fd69cdd69b02a45fd2f67ce3fa4cda2]
++ increase fetch timeout, [96adb784cedcf10d6338490f4760f4962c9dfe54]
+
+### Refactors
++ vite.config, [7e95fa72946995259ba397f61abdc02b7ac5591a]
 
 see <a href='https://github.com/mrjackwills/adsbdb_site/blob/main/CHANGELOG.md'>CHANGELOG.md</a> for more details
