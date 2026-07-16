@@ -26,7 +26,7 @@ class ApiRequests {
 			'Content-Type': 'application/json; charset=utf-8',
 			'Cache-control': 'no-cache',
 		}
-		this.#timeout = 10_000
+		this.#timeout = 20_000
 	}
 
 	@wrap
