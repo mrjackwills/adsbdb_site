@@ -71,7 +71,8 @@ function closeSnackbar (): void {
 }
 
 watch(visible, i => {
-	if (i && snackTimeout) {
+	if (i) {
+		clearTimeout(timeout.value)
 		timeout.value = window.setTimeout(() => {
 			closeSnackbar()
 		}, snackTimeout.value)
