@@ -40,6 +40,10 @@ onMounted(() => {
 	updateHeight()
 })
 
+onBeforeUnmount(() => {
+	window.removeEventListener('resize', updateHeight)
+})
+
 /// Set the status height in pinia, so that the rate limit card has the same spacing
 function updateHeight () {
 	onlineStore.status_height = status_section.value?.offsetHeight ?? 0
