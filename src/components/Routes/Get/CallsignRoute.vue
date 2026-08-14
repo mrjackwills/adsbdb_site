@@ -8,7 +8,7 @@
 				random
 				:route
 				:title='route'
-				variable='CALLSIGN_ICAO || CALLSIGN_ICAO'
+				variable='CALLSIGN_ICAO || CALLSIGN_IATA'
 				@click='get_random_callsign'
 			/>
 
