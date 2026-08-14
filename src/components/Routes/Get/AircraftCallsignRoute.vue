@@ -89,7 +89,7 @@ const code = computed((): undefined | ApiResponse<AircraftCallsignResponse> => {
 		: undefined
 })
 
-const url = 'aircraft/{ MODE_S || REGISTRATION }?callsign={ CALLSIGN_ICAO || CALLSIGN_ICAO }'
+const url = 'aircraft/{ MODE_S || REGISTRATION }?callsign={ CALLSIGN_ICAO || CALLSIGN_IATA }'
 
 const description = 'Query for both an aircraft & callsign with a single GET request.'
 
