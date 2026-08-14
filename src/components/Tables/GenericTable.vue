@@ -6,7 +6,7 @@
 		density='compact'
 		striped='even'
 	>
-		<span v-if='title' :id />
+		<span :id />
 
 		<thead>
 			<tr v-if='!noHeaders'>
