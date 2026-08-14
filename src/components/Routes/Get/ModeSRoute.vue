@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import type { AircraftResponse, ApiResponse } from '@/types'
 
-const description = 'Convert from N-Number string to MODE-S string.'
+const description = 'Convert from MODE-S string to N-Number string.'
 const route = 'mode-s'
 
 const rows = [{ key: 'response', value: ['string'] }]
