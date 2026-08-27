@@ -8,13 +8,13 @@
 		<v-col class='align-end' cols='12' md='7'>
 			<v-row class='mt-1 align-center justify-end' density='compact'>
 				<v-col class='ma-0 pa-0' cols='12'>
-					<UrlBox bg :link='show_link' rounded :url />
+					<UrlBox :link='show_link' rounded :url />
 				</v-col>
 			</v-row>
 
 			<v-row v-if='random' class='align-center' density='compact'>
 				<v-col class='ma-0 pa-0' cols='12'>
-					<UrlBox bg link rounded :url='random_url' />
+					<UrlBox link rounded :url='random_url' />
 				</v-col>
 			</v-row>
 		</v-col>
