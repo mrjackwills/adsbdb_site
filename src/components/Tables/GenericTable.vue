@@ -43,10 +43,7 @@
 
 <script setup lang="ts">
 import type { KV } from '@/types'
-import type { VTable } from 'vuetify/components'
 
-const table = ref(null as null | VTable)
-const table_height = ref(0)
 defineProps<{
 	rows?: Array<KV>
 	title?: string
@@ -54,12 +51,6 @@ defineProps<{
 	id?: string
 }>()
 
-const emit = defineEmits(['height'])
-
-onMounted(() => {
-	table_height.value = table.value?.$el.clientHeight
-	emit('height', table_height.value)
-})
 </script>
 
 <style scoped>
