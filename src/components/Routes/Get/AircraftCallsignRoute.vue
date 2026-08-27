@@ -60,7 +60,7 @@
 					<v-skeleton-loader v-else type='paragraph, paragraph, paragraph, paragraph, paragraph, paragraph' />
 				</template>
 
-			</tableresponse>
+			</TableResponse>
 		</template>
 	</AppCard>
 </template>
