@@ -28,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+import { useResizeObserver } from '@vueuse/core'
 import { env } from '@/services/env'
 import { secondsToText } from '@/services/text'
 
@@ -35,24 +36,13 @@ const href = `${env.github_homepage}/adsbdb/issues`
 
 const status_section = ref(null as null | HTMLElement)
 
-onMounted(() => {
-	window.addEventListener('resize', updateHeight)
-	updateHeight()
-})
-
-onBeforeUnmount(() => {
-	window.removeEventListener('resize', updateHeight)
-})
+const onlineStore = onlineModule()
 
 /// Set the status height in pinia, so that the rate limit card has the same spacing
-function updateHeight () {
+useResizeObserver(status_section, () => {
 	onlineStore.status_height = status_section.value?.offsetHeight ?? 0
-	setTimeout(() => {
-		onlineStore.status_height = status_section.value?.offsetHeight ?? 0
-	}, 1)
-}
+})
 
-const onlineStore = onlineModule()
 const api_version = computed(() => onlineStore.api_version)
 const online_time = computed(() => secondsToText(onlineStore.online_time))
 
