@@ -78,8 +78,6 @@ export type OnlineResponse = {
 	api_version: string
 }
 
-export type StatusBox = OnlineResponse & { total: number }
-
 export const ModuleName = {
 	Online: 'online',
 	RandomResponses: 'random_responses',

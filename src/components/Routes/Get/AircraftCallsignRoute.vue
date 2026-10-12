@@ -45,7 +45,7 @@
 						<template #tr_end>
 							<tr>
 								<td class='font-weight-bold'>airline</td>
-								<GotoTD :id='ID_TABLES.AircraftCallsign.Airline' text='Airline' />
+								<GotoTD :id='ID_TABLES.AircraftCallsign.Airline' text='Airline' /> || null
 							</tr>
 						</template>
 					</GenericTable>
@@ -60,7 +60,7 @@
 					<v-skeleton-loader v-else type='paragraph, paragraph, paragraph, paragraph, paragraph, paragraph' />
 				</template>
 
-			</tableresponse>
+			</TableResponse>
 		</template>
 	</AppCard>
 </template>
@@ -89,7 +89,7 @@ const code = computed((): undefined | ApiResponse<AircraftCallsignResponse> => {
 		: undefined
 })
 
-const url = 'aircraft/{ MODE_S || REGISTRATION }?callsign={ CALLSIGN_ICAO || CALLSIGN_ICAO }'
+const url = 'aircraft/{ MODE_S || REGISTRATION }?callsign={ CALLSIGN_ICAO || CALLSIGN_IATA }'
 
 const description = 'Query for both an aircraft & callsign with a single GET request.'
 

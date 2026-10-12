@@ -7,7 +7,6 @@
 			v-if='scrolled'
 			class='mr-1 cl up_arrow'
 			color='yellow'
-			dark
 			:icon='mdiArrowCollapseUp'
 			position='fixed'
 			size='small'
@@ -33,7 +32,7 @@ onBeforeUnmount(() => {
 const scrolled = ref(false)
 
 function scrollEvent (): void {
-	scrolled.value = window.scrollY > 200 ? true : false
+	scrolled.value = window.scrollY > 200
 }
 
 function goToTop (): void {

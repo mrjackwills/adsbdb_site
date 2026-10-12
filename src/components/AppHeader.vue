@@ -44,7 +44,8 @@ import { env } from '@/services/env'
 const { mdAndUp } = useDisplay()
 const href = `${env.github_homepage}adsbdb`
 
-const logo_size = computed(() => mdAndUp.value ? '5rem' : '5rem')
+const logo_size = '5rem'
+
 const font_size = computed(() => mdAndUp.value ? 'text-display-large' : 'text-display-medium')
 const desc_size = computed(() => mdAndUp.value ? 'text-headline-medium' : 'text-headline-small')
 

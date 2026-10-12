@@ -25,7 +25,6 @@ declare module 'vue' {
     CallsignRoute: typeof import('./components/Routes/Get/CallsignRoute.vue')['default']
     CodeBlock: typeof import('./components/CodeBlock.vue')['default']
     ExternalLink: typeof import('./components/ExternalLink.vue')['default']
-    FlightrouteTable: typeof import('./components/Tables/FlightrouteTable.vue')['default']
     GenericTable: typeof import('./components/Tables/GenericTable.vue')['default']
     GetRoutes: typeof import('./components/Routes/GetRoutes.vue')['default']
     GotoTD: typeof import('./components/Tables/GotoTD.vue')['default']

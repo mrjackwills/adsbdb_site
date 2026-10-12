@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Aircraft, AircraftCallsignResponse, AircraftResponse, AirlineResponse, ApiResponse, CallsignResponse, OnlineResponse, StatsResponse, StatusBox } from '@/types'
+import type { Aircraft, AircraftCallsignResponse, AircraftResponse, AirlineResponse, ApiResponse, CallsignResponse, OnlineResponse, StatsResponse } from '@/types'
 
 import prism from 'prismjs'
 import 'prismjs/components/prism-json'
@@ -19,7 +19,7 @@ const highlighted_code = computed(() => {
 })
 
 const props = defineProps<{
-	code?: ApiResponse<AircraftResponse | OnlineResponse | CallsignResponse | Array<AirlineResponse> | StatsResponse | AircraftCallsignResponse> | Aircraft | StatusBox
+	code?: ApiResponse<AircraftResponse | OnlineResponse | CallsignResponse | Array<AirlineResponse> | StatsResponse | AircraftCallsignResponse> | Aircraft
 	string?: string
 	url?: string
 }>()
