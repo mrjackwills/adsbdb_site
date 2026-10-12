@@ -19,7 +19,7 @@
 						<template #tr_end>
 							<tr>
 								<td class='font-weight-bold'>airline</td>
-								<GotoTD :id='ID_TABLES.Callsign.Airline' text='Airline' />
+								<GotoTD :id='ID_TABLES.Callsign.Airline' text='Airline' /> || null
 							</tr>
 
 							<tr>
