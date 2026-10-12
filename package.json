@@ -2,7 +2,7 @@
   "name": "adsbdb_site",
   "private": true,
   "type": "module",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "scripts": {
     "dev": "vite",
     "serve": "vite",
@@ -45,5 +45,5 @@
     "vite": "^8.3.4",
     "vue-tsc": "^3.3.13"
   },
-  "buildDate": "Thu 16 2026 July 21:40:48 BST"
+  "buildDate": "Mon 12 2026 October 13:48:53 BST"
 }
